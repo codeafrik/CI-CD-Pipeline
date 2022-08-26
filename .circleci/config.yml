@@ -6,21 +6,17 @@ jobs:
   print_hello:
     docker:
       - image: circleci/node:13.8.0
-    
     steps:
-      - checkout
       - run: echo Hello         
   print_world:
     docker:
       - image: circleci/node:13.8.0
-    
     steps:
-      - checkout
       - run: echo world
 workflows:
   hello-world-workflow:
     jobs:
       - print_hello
-      - print_world
+      - print_world:
           requires: 
             - print_hello
