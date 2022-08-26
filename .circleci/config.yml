@@ -3,7 +3,7 @@
 version: 2.1
 
 jobs:
-  print-hello:
+  print_hello:
     docker:
       - image: circleci/node:13.8.0
     
@@ -12,7 +12,7 @@ jobs:
       - run:
           name: "Say Hello"
           command: "echo Hello"
-  print-hello:
+  print_world:
     docker:
       - image: circleci/node:13.8.0
     
@@ -25,6 +25,7 @@ jobs:
 workflows:
   hello-world-workflow:
     jobs:
-      - print-hello
-      - print-world
-        requires: print-hello
+      - print_hello
+      - print_world
+        requires: 
+          print_hello
